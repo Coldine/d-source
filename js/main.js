@@ -100,4 +100,4 @@ document.querySelector("#s12-b1").addEventListener("change", (e)=>{
 
 });
     
-btn(8);
+btn(1);
