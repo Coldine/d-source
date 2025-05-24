@@ -6,6 +6,22 @@ let s12_b4 = document.querySelector("#s12-b4");
 let s12_b5 = document.querySelector("#s12-b5");
 let s12_b8 = document.querySelector("#s12-b8");
 
+// PRUEBA INICIO
+
+document.querySelector("#st-b2").addEventListener("click", e=>{
+    clearCanva(ctx0);
+    let d = generateSierpinskiVertices(A, B, C, parseInt(document.querySelector("#st-b1").value));
+    let t = "";
+    
+    d.forEach( e =>{
+        t = t + `${e.x},${e.y},${e.d}\n`;
+    });
+    console.log({t, d});
+    document.querySelector("#cr").value = t;
+});
+
+// PRUEBA FIN 
+
 s12_b2.addEventListener("click", gestion);
 function drawTriangle() {
     // ctx2.strokeStyle = "red";
@@ -73,8 +89,9 @@ function gestion(){
 
         crearTablaCoordenadas(pointList, 's12-tb');
         contenedorDeTabla.classList.add("show");
-        s12_b6.classList.add("show");
-        s12_ch.classList.add("show");
+        s12_b6.style.display = "";
+        s12_ch.style.display = "";
+        
         contenedorDeTabla.setAttribute("data-pos", "16, 23, 4, 30");
         s12_b2.setAttribute("data-pos","21, 26, 2, 4");
         s12_b3.setAttribute("data-pos","26, 30, 2, 4");
@@ -87,10 +104,10 @@ function gestion(){
         drawSierpinski(iteraciones);
         // drawTriangle();
         contenedorDeTabla.classList.remove("show");
-        s12_b6.classList.remove("show");
-        s12_ch.classList.remove("show")
+        s12_b6.style.display = "none";
+        s12_ch.style.display = "none";
         contenedorDeTabla.setAttribute("data-pos", "16, 23, 4, 30");
-        s12_b8.setAttribute("data-pos","18, 27, 8, 10");
+        s12_b8.setAttribute("data-pos","18, 27, 7, 9");
         s12_b2.setAttribute("data-pos","20, 25, 10, 12");
         s12_b3.setAttribute("data-pos","20, 25, 12, 14");
         s12_b4.setAttribute("data-pos","20, 25, 16, 18");

@@ -1,4 +1,7 @@
 /** PROBAR CON 6, 50, 100, 1000, 9000,50000, 100000, 500000, 1000000*/
+const canvas0 = document.getElementById("sierpinski0");
+const ctx0 = canvas0.getContext("2d");
+
 const canvas2 = document.getElementById("sierpinski2");
 const ctx2 = canvas2.getContext("2d");
 const width = canvas2.width;
@@ -22,6 +25,49 @@ const A = [-1, 0];
 const B = [1, 0];
 const C = [0, Math.sqrt(3)];
 let vertices = [A, B, C];
+
+// PUEBA INICIO 
+function generateSierpinskiVertices(A, B, C, depth) {
+  let pList0 = [];
+
+  // Helper function to calculate the midpoint between two points
+  function getMidpoint(p1, p2) {
+    return [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2];
+  }
+
+  // Recursive function to generate the Sierpinski triangles
+  function sierpinski(p1, p2, p3, currentDepth) {
+    if (currentDepth === 0) {
+      // Add the current triangle's vertices to pList0
+      pList0.push(p1, p2, p3);
+    } else {
+      // Calculate midpoints
+      const m1 = getMidpoint(p1, p2);
+      const m2 = getMidpoint(p2, p3);
+      const m3 = getMidpoint(p3, p1);
+
+      // Recursively call for the three outer triangles
+      sierpinski(p1, m1, m3, currentDepth - 1);
+      sierpinski(m1, p2, m2, currentDepth - 1);
+      sierpinski(m3, m2, p3, currentDepth - 1);
+    }
+  }
+
+  // Start the Sierpinski generation with the initial triangle
+  sierpinski(A, B, C, depth);
+
+  // Remove duplicate vertices since each vertex will be added multiple times
+  // when triangles share edges. We can use a Set to store unique stringified
+  // representations and then parse them back.
+  let uniqueVertices = Array.from(new Set(pList0.map(v => JSON.stringify(v)))).map(v => JSON.parse(v));
+let nCho = [];
+  uniqueVertices.forEach((e)=>{
+    nCho.push({x: e[0],y:e[1],d: Math.sqrt(Math.pow(e[0], 2) + Math.pow(e[1], 2))});
+    drawPoint(e[0], e[1], "black", 15, ctx0);
+});
+  return nCho;
+}
+
 
 function toCanvasCoords(x, y) {
   return [x * scale + offsetX, -y * scale + offsetY];
@@ -73,7 +119,6 @@ function drawSierpinski(iterations) {
   globalY = globalY / iterations;
 
   const sortedX = [...xCoordinates].sort((a, b) => a - b);
- console.log({sortedX});
  
   const middleX = Math.floor(iterations / 2);
   if (iterations % 2 === 0) {
