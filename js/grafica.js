@@ -47,11 +47,11 @@ function generarHistograma(datos, etiquetaEjeX = 'Valores', etiquetaEjeY = 'Frec
     });
   }
   
-generarHistograma([130, 135, 140, 145, 147, 148, 148, 148, 148, 149, 149, 149, 149, 149, 149, 150, 152, 155, 160, 165, 170],
+generarHistograma([102, 148, 149, 149, 149, 149, 149, 149, 149, 149, 150, 150, 151, 152, 153, 154, 155, 156, 157],
 'Distancia (millones de km)', 'Frecuencia', 'Mediciones usando equipo de baja precisión', 'miHistograma');
-generarHistograma([120, 145, 146, 147, 147, 148, 148, 148, 149, 149, 149, 150, 150, 150, 151, 152, 153, 154, 200, 250],
+generarHistograma([145.2, 146.5, 147.1, 148.0, 148.8, 149.1, 149.3, 149.5, 149.7, 149.9, 150.1, 150.3, 151.0, 152.4, 153.8, 154.5, 200.0, 250.0, 300.0],
 'Distancia (millones de km)', 'Frecuencia', 'Mediciones usando equipo más avanzado', 'miHistograma2');
-generarHistograma([147.9, 148.1, 148.3, 148.5, 148.6, 148.4, 148.2, 148.7, 148.5, 148.3, 148.6, 148.2, 148.5, 148.1, 148.4],
+generarHistograma([147.9, 148.1, 148.3, 148.5, 148.6, 148.7, 148.8, 149.0, 149.2, 149.4, 149.8, 150.1, 150.5, 151.0, 151.1],
 'Distancia (millones de km)', 'Frecuencia', 'Mediciones usando equipo de alta precisión', 'miHistograma3');
         
   
