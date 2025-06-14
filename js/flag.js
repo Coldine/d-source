@@ -375,9 +375,22 @@
             if (promedio === null) {
                 document.getElementById("promcont").style.opacity = "0";
             }else{
-                document.getElementById("prom").innerText = promedio;
+                document.getElementById("prom").innerText = promedio.toFixed(2);
+                document.getElementById("sisData").innerText = "[" + obtenerSisData() + "]";
                 document.getElementById("promcont").style.opacity = "1";
             }
+        }
+        function obtenerSisData() {
+            let ts = [];
+             for (let i = 0; i < listadoInfo.length; i++) {
+                const elemento = listadoInfo[i];
+          
+              // Verificar si la propiedad 'flag' existe y es true
+              if (elemento.hasOwnProperty('flag') && elemento.flag === true) {
+                ts.push(`(${elemento.x.toFixed(2)}, ${elemento.y.toFixed(2)})`);
+              }
+            }
+            return ts.join(", ");
         }
         function obtenerPromedio() {
             let sumaDistancias = 0;

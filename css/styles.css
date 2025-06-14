@@ -250,3 +250,7 @@ b {
 #promcont{
   background-color: white;
 }
+#sisData{
+  font-size: calc(var(--font-size-base) * 0.7);
+  font-family: monospace;
+}
