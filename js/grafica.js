@@ -48,11 +48,11 @@ function generarHistograma(datos, etiquetaEjeX = 'Valores', etiquetaEjeY = 'Frec
   }
   
   generarHistograma(
-    [120, 130, 140, 145, 148, 149, 149, 149, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 160],
+    [144, 145, 148, 149, 149, 149, 149, 149, 152, 152, 153, 154, 155, 156, 157,157, 158, 163, 165],
     'Distancia (millones de km)', 'Frecuencia', 'Mediciones usando equipo de baja precisión', 'miHistograma'
   );
   generarHistograma(
-    [144.5, 145.0, 145.7, 146.3, 147.0, 147.8, 148.5, 148.9, 149.0, 149.2, 150.0, 150.5, 151.0, 152.0, 153.0, 155.0, 158.0, 160.0, 162.7],
+    [144.9, 145.0, 145.7, 146.3, 147.0, 147.8, 148.5, 148.9, 149.0, 149.2, 150.0, 150.5, 151.0, 152.0, 153.0, 155.0, 158.0, 160.0, 169.7],
    'Distancia (millones de km)', 'Frecuencia', 'Mediciones usando equipo más avanzado', 'miHistograma2'
   );
   generarHistograma(
