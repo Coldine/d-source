@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cálculo sin representación: análisis crítico de las medidas centrales</title>
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="shortcut icon" href="img/portada/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/main.js" defer></script>
     <script src="js/buttons.js" defer></script>
     <script src="js/fractal.js" defer></script>
+    <script src="js/flag.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
     <script src="js/app.js" defer   ></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
@@ -35,9 +37,9 @@ Cálculo sin representación: análisis crítico de las medidas centrales
         <h2>¿Cúal es la distancia de la tierra al sol?</h2>
         <p class="t">
           El astrofísico Dr. Heli Ox se ha propuesto calcular la distancia media entre la Tierra y el Sol. Para lograrlo, repite una serie de experimentos con distintos métodos e instrumentos. Como era de esperarse, no siempre obtiene el mismo valor: hay errores de medición, diferencias en las condiciones atmosféricas y hasta fallas humanas. De todas sus mediciones, el Dr. Heli busca elegir una que represente de forma confiable esa distancia. ¿Cuál de todas las medidas de tendencia central será más adecuada en cada caso?
+        <!-- <br>
         <br>
-        <br>
-        En cada uno de los casos siguientes, calcule la media, mediana y moda; explique cual de estas medidas de tendencia central es mejor representante del sistema de datos en cada situación.
+        En cada uno de los casos siguientes, calcule la media, mediana y moda; explique cual de estas medidas de tendencia central es mejor representante del sistema de datos en cada situación. -->
         </p>
       </div>
       <!-- DIAPOSITIVA # 3 -->
@@ -313,7 +315,7 @@ A diferencia de los datos tradicionales, en los fractales no hay valores atípic
         </p>
       </div> -->
       <!-- SLIDE 10 -->
-      <div class="c" data-changer data-pos="2, 16, 2, 30" data-slide="8" > 
+      <div class="c" data-changer data-pos="2, 15, 2, 30" data-slide="8" > 
       <canvas id="sierpinski2" width="3000" height="3000"></canvas>
     </div>
     <div id="s12-b8" class="c" data-changer data-pos="16, 21, 2, 4" data-slide="8" > 
@@ -341,7 +343,31 @@ A diferencia de los datos tradicionales, en los fractales no hay valores atípic
       <div class="c" id="s12-b6" data-changer data-pos="24, 29, 18, 20" data-slide="8" data-btn-start-animation> 
       <span>Dibujar 🟤</span>
       </div>
+      <div class="c" data-changer data-pos="4, 30, 8, 24" data-slide="9">
+        <h2>Misión en Sierpinskia-Δ</h2>
+        <p class="t">
+          En el planeta fractal Sierpinskia-Δ, los vértices de una red triangular infinita esconden una fuente de energía ancestral. El agente Delta ha sido enviado a plantar banderas de activación en puntos estratégicos del fractal, siempre partiendo desde la base central: el punto (0, 0).
+          <br>
+          Cada movimiento consume energía, y la batería es limitada. Tu misión es ayudar a Delta a seleccionar los puntos más eficientes, usando la media de las distancias al origen como herramienta de decisión.
+          <br>
+          ¿Podrás activar la red sin agotar los recursos? La estrategia está en tus manos.
+        </p>
+      </div>
+      
       <!-- SLIDE 11 -->
+      <div class="c" data-changer data-pos="1, 20, 1, 30" data-slide="10">
+        <canvas id="sierpinskiCanvas" width="4000" height="3200"></canvas>
+    </div>
+    <div class="c" id="clearButton" data-changer data-pos="22, 30, 13, 15" data-slide="10" data-btn-reset-animation>
+        <span>Quitar todas las banderas</span>
+    </div>
+<!-- 
+    <div class="c" id="showSumButton" data-changer data-pos="22, 30, 16, 18" data-slide="10" data-btn-reset-animation>
+      <span>Promediar distancias al origen</span>
+  </div> -->
+  <div class="c" id="promcont" data-changer data-pos="22, 30, 18, 22" data-slide="10" style="opacity: 0;">
+    <p> El promedio de todas las distancias marcadas es: <span id="prom"></span></p>
+  </div>
       <!-- <div class="c" data-changer data-pos="2, 16, 8, 24" data-img data-link="img/F.jpg" data-slide="11"></div>
       <div class="c" data-changer data-pos="18, 32, 8, 24" data-slide="11">
         <p>
@@ -367,8 +393,8 @@ A diferencia de los datos tradicionales, en los fractales no hay valores atípic
 
 
       <!-- SLIDE 13 -->
-       <div class="c" data-changer data-pos="2, 16, 8, 24" data-img data-link="img/portada/p.avif" data-slide="9"></div>
-      <div class="c título" data-changer data-pos="18, 32, 8, 24" data-slide="9">
+       <div class="c" data-changer data-pos="2, 16, 8, 24" data-img data-link="img/portada/p.avif" data-slide="11"></div>
+      <div class="c título" data-changer data-pos="18, 32, 8, 24" data-slide="11">
         <h1>Cálculo sin representación: análisis crítico de las medidas centrales</h1>
       </div>
       

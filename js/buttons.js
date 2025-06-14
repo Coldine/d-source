@@ -8,17 +8,17 @@ let s12_b8 = document.querySelector("#s12-b8");
 
 // PRUEBA INICIO
 
-document.querySelector("#st-b2").addEventListener("click", e=>{
-    clearCanva(ctx0);
-    let d = generateSierpinskiVertices(A, B, C, parseInt(document.querySelector("#st-b1").value));
-    let t = "";
+// document.querySelector("#st-b2").addEventListener("click", e=>{
+//     clearCanva(ctx0);
+//     let d = generateSierpinskiVerticesIterative(A, B, C, parseInt(document.querySelector("#st-b1").value));
+//     let t = "";
     
-    d.forEach( e =>{
-        t = t + `${e.x},${e.y},${e.d}\n`;
-    });
-    console.log({t, d});
-    document.querySelector("#cr").value = t;
-});
+//     d.forEach( e =>{
+//         t = t + `${e.x},${e.y},${e.d}\n`;
+//     });
+//     console.log({t, d});
+//     document.querySelector("#cr").value = t;
+// });
 
 // PRUEBA FIN 
 
@@ -85,6 +85,7 @@ function gestion(){
     clearCanva(ctx2);
     if (iteraciones<=20) {
         drawTriangle();
+        
         drawSierpinski(iteraciones);
 
         crearTablaCoordenadas(pointList, 's12-tb');

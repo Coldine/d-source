@@ -1,6 +1,6 @@
 /** PROBAR CON 6, 50, 100, 1000, 9000,50000, 100000, 500000, 1000000*/
-const canvas0 = document.getElementById("sierpinski0");
-const ctx0 = canvas0.getContext("2d");
+// const canvas0 = document.getElementById("sierpinski0");
+// const ctx0 = canvas0.getContext("2d");
 
 const canvas2 = document.getElementById("sierpinski2");
 const ctx2 = canvas2.getContext("2d");
@@ -27,46 +27,64 @@ const C = [0, Math.sqrt(3)];
 let vertices = [A, B, C];
 
 // PUEBA INICIO 
-function generateSierpinskiVertices(A, B, C, depth) {
-  let pList0 = [];
+// function generateSierpinskiVerticesIterative(A, B, C, depth) {
+//   let pList0 = [];
+//   // Initialize with the first triangle's vertices
+//   let currentTriangles = [
+//     [A, B, C]
+//   ];
 
-  // Helper function to calculate the midpoint between two points
-  function getMidpoint(p1, p2) {
-    return [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2];
-  }
+//   // Helper function to calculate the midpoint between two points
+//   function getMidpoint(p1, p2) {
+//     return [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2];
+//   }
 
-  // Recursive function to generate the Sierpinski triangles
-  function sierpinski(p1, p2, p3, currentDepth) {
-    if (currentDepth === 0) {
-      // Add the current triangle's vertices to pList0
-      pList0.push(p1, p2, p3);
-    } else {
-      // Calculate midpoints
-      const m1 = getMidpoint(p1, p2);
-      const m2 = getMidpoint(p2, p3);
-      const m3 = getMidpoint(p3, p1);
+//   // Iterate for the specified depth
+//   for (let i = 0; i < depth; i++) {
+//     let nextTriangles = [];
+//     for (const triangle of currentTriangles) {
+//       const [p1, p2, p3] = triangle;
 
-      // Recursively call for the three outer triangles
-      sierpinski(p1, m1, m3, currentDepth - 1);
-      sierpinski(m1, p2, m2, currentDepth - 1);
-      sierpinski(m3, m2, p3, currentDepth - 1);
-    }
-  }
+//       // Calculate midpoints of the current triangle's sides
+//       const m1 = getMidpoint(p1, p2);
+//       const m2 = getMidpoint(p2, p3);
+//       const m3 = getMidpoint(p3, p1);
 
-  // Start the Sierpinski generation with the initial triangle
-  sierpinski(A, B, C, depth);
+//       // Add the three new outer triangles to the next iteration's list
+//       nextTriangles.push(
+//         [p1, m1, m3], // Top-left triangle
+//         [m1, p2, m2], // Top-right triangle
+//         [m3, m2, p3] // Bottom triangle
+//       );
+//     }
+//     currentTriangles = nextTriangles;
+//   }
 
-  // Remove duplicate vertices since each vertex will be added multiple times
-  // when triangles share edges. We can use a Set to store unique stringified
-  // representations and then parse them back.
-  let uniqueVertices = Array.from(new Set(pList0.map(v => JSON.stringify(v)))).map(v => JSON.parse(v));
-let nCho = [];
-  uniqueVertices.forEach((e)=>{
-    nCho.push({x: e[0],y:e[1],d: Math.sqrt(Math.pow(e[0], 2) + Math.pow(e[1], 2))});
-    drawPoint(e[0], e[1], "black", 15, ctx0);
-});
-  return nCho;
-}
+//   // After all iterations, currentTriangles contains all the smallest triangles.
+//   // Extract all unique vertices from these triangles.
+//   const allVertices = [];
+//   for (const triangle of currentTriangles) {
+//     allVertices.push(...triangle);
+//   }
+
+//   // Remove duplicate vertices.
+//   // Convert each coordinate array to a JSON string to use Set for uniqueness,
+//   // then parse back to arrays.
+//   const uniqueVertices = Array.from(new Set(allVertices.map(v => JSON.stringify(v)))).map(v => JSON.parse(v));
+
+//   // pList0 = uniqueVertices; // Assign the unique vertices to pList0
+//   // return pList0;
+//   let nCho = [];
+//   uniqueVertices.forEach((e, i)=>{
+//     nCho.push({x: e[0],y:e[1],d: Math.sqrt(Math.pow(e[0], 2) + Math.pow(e[1], 2))});
+//     drawPoint(e[0], e[1], "black", 15, ctx0);
+//     console.log(nCho[i].x,nCho[i].y,nCho[i].d);
+    
+// });
+// return nCho;
+// }
+
+// PRUEBA FIN
 
 
 function toCanvasCoords(x, y) {
@@ -74,6 +92,7 @@ function toCanvasCoords(x, y) {
 }
 
 function drawPoint(x, y, color, size, altenativeCtx) {
+  
   if (altenativeCtx) {
     ctx = altenativeCtx;
   }
@@ -104,6 +123,7 @@ function drawSierpinski(iterations) {
   let yCoordinates = [];
 
   for (let i = 0; i < iterations; i++) {
+    
     let currentVertexIndex = Math.floor(Math.random() * 3);
     const target = vertices[currentVertexIndex];
     point = [(point[0] + target[0]) / 2, (point[1] + target[1]) / 2];
@@ -114,6 +134,7 @@ function drawSierpinski(iterations) {
     xCoordinates.push(p.x);
     yCoordinates.push(p.y);
     drawPoint(p.x, p.y, "black", sizeBK, ctx2);
+    
   }
   globalX = globalX / iterations;
   globalY = globalY / iterations;
@@ -141,6 +162,5 @@ function drawSierpinski(iterations) {
 }
 
 function clearCanva(altenativeCtx /*, drawVx=true*/) {
-  ctx = altenativeCtx;
-  ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+  altenativeCtx.clearRect(0, 0, canvas2.width, canvas2.height);
 }

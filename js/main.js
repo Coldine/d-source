@@ -50,6 +50,7 @@ function close() {
   });
 }
 close();
+//--------------------------------------
 // function configurarEventos() {
 //   // Eventos para teclado
 //   document.addEventListener('keydown', function(event) {
@@ -82,6 +83,8 @@ close();
 //   }, false);
 // }
 // document.addEventListener('DOMContentLoaded', configurarEventos);
+//--------------------------------------
+
 let iteraciones = 0;
 document.querySelector("#s12-b1").addEventListener("change", (e)=>{
   iteraciones = parseInt(e.target.value);
