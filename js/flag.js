@@ -335,9 +335,9 @@
         /**
          * Inicializa el canvas: genera el fractal, dibuja los puntos y su información.
          * Esta función también se usa para la función de "limpiar".
-         */
+        //  */
         function initCanvas() {
-            // Limpiar todo el contenido anterior del canvas
+            // Limpiar todo     )();el contenido anterior del canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             // Reiniciar las listas de información y vértices
             listadoInfo = [];
@@ -419,8 +419,8 @@
         // });
 
         // Inicializar el canvas cuando la página se haya cargado completamente
-        window.onload = initCanvas;
-
+        // window.onload = initCanvas;
+        initCanvas();
                 /**
          * Toma los valores de un array de elementos HTML especificados por su ID
          * y los guarda en un archivo .txt para descargar.
